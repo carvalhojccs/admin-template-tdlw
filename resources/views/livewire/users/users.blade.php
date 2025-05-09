@@ -3,7 +3,7 @@
         <x-breadcrumb.item :route="route('users.users')">{{ __('Usuários') }}</x-breadcrumb.item>
     </x-breadcrumb>
     <x-cards.card-section py="py-2">
-        <x-zmd-button text="Novo" light sm wire:click="$dispatch('users::create')"/>
+        <x-zmd-button text="Novo" color="orange" sm wire:click="$dispatch('users::create')"/>
     </x-cards.card-section>
 
     <x-cards.card-section>
