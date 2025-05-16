@@ -41,11 +41,17 @@ class Create extends Component
         $this->modal = true;
     }
 
+    public function close(): void
+    {
+        $this->modal = false;
+        $this->reset();
+    }
+
     public function handle(): void
     {
         $this->price = str_replace('.', '', $this->price);
         $this->price = str_replace(',', '.', $this->price);
-        dd($this->price);
+
         $this->validate();
 
         \App\Models\Plan::create([
