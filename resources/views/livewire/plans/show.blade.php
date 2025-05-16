@@ -38,11 +38,27 @@
         </div>
     </x-cards.card-section>
     <x-cards.card-section>
-        <x-zmd-button text="Voltar" color="gray" sm :href="route('plans.plans')"/>
-        <x-zmd-button text="Editar" color="orange" sm wire:click="$dispatch('plans::edit', {id: '{{ $this->id }}'})"/>
-        <x-zmd-button text="Excluir" color="red" sm wire:click="$dispatch('plans::destroy', {id: '{{ $this->id }}'})"/>
+        <div class="flex items-center justify-between">
+            <div>
+                <x-zmd-button text="Voltar" color="gray" sm :href="route('plans.plans')"/>
+                <x-zmd-button text="Editar" color="orange" sm wire:click="$dispatch('plans::edit', {id: '{{ $this->id }}'})"/>
+                @if ($detailCount == 0)
+                    <x-zmd-button text="Excluir" color="red" sm wire:click="$dispatch('plans::destroy', {id: '{{ $this->id }}'})"/>
+                @endif
+            </div>
+        
+            <x-zmd-button text="{{ __('Adicionar novo detalhe') }}" color="indigo" sm wire:click="$dispatch('plans::details::create', {planId: '{{ $this->id }}'})"/>
+        </div>
     </x-cards.card-section>
 
     <livewire:plans.edit />
     <livewire:plans.destroy />
+
+    <x-cards.card-section>
+    <livewire:plans.details.index :plan="$plan" />
+    </x-cards.card-section>
+
+    <livewire:plans.details.create :plan="$plan" />
+    <livewire:plans.details.edit :plan="$plan" />
+    <livewire:plans.details.destroy :plan="$plan" />
 </x-cards.card>

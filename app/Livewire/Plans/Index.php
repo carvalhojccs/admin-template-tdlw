@@ -33,7 +33,7 @@ class Index extends Component
     #[Computed()]
     public function rows()
     {
-        return \App\Models\Plan::query()
+        return Plan::query()
             ->when($this->search, function ($query) {
                 return $query->where('name', 'like', "%{$this->search}%")
                     ->orWhere('description', 'like', "%{$this->search}%");
