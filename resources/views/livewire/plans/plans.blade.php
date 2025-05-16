@@ -9,7 +9,5 @@
     <x-cards.card-section>
         <livewire:plans.index />
         <livewire:plans.create />
-        <livewire:plans.edit />
-        <livewire:plans.destroy />
     </x-cards.card-section>
 </x-cards.card>

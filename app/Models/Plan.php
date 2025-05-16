@@ -17,11 +17,10 @@ class Plan extends Model
         'price' => 'decimal:2',
     ];
 
-protected function price(): Attribute
+    protected function price(): Attribute
     {
         return Attribute::make(
             get: fn ($value) => Number::currency($value, 'BRL', 'pt_br'),
-            //set: fn ($value) => Number::currency($value, 'US'),
         );
     }
 
