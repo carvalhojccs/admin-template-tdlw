@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Plans;
 
+use App\Models\Plan;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use Illuminate\Validation\Rule;
@@ -54,7 +55,7 @@ class Create extends Component
 
         $this->validate();
 
-        \App\Models\Plan::create([
+        Plan::create([
             'name' => $this->name,
             'description' => $this->description,
             'price' => $this->price,

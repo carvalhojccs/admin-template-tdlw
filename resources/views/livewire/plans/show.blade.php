@@ -41,6 +41,8 @@
         <x-zmd-button text="Voltar" color="gray" sm :href="route('plans.plans')"/>
         <x-zmd-button text="Editar" color="orange" sm wire:click="$dispatch('plans::edit', {id: '{{ $this->id }}'})"/>
         <x-zmd-button text="Excluir" color="red" sm wire:click="$dispatch('plans::destroy', {id: '{{ $this->id }}'})"/>
-        <x-zmd-button text="Fechar" color="gray" sm wire:click="$dispatch('plans::index')"/>
     </x-cards.card-section>
+
+    <livewire:plans.edit />
+    <livewire:plans.destroy />
 </x-cards.card>
